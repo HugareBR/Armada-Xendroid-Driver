@@ -144,7 +144,7 @@ EOF
 			-Dgallium-drivers= \
 			-Dvulkan-drivers=freedreno \
 			-Dvulkan-beta=true \
-			-Dfreedreno-kmds=kgsl \
+			-Dfreedreno-kmds=msm \
 			-Degl=disabled \
 			-Dplatform-sdk-version=36 \
 			-Dandroid-libbacktrace=disabled \
