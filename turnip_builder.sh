@@ -145,6 +145,7 @@ EOF
 			-Dvulkan-drivers=freedreno \
 			-Dvulkan-beta=true \
 			-Dfreedreno-kmds=msm \
+			-Dallow-fallback-for=libdrm \
 			-Degl=disabled \
 			-Dplatform-sdk-version=36 \
 			-Dandroid-libbacktrace=disabled \
