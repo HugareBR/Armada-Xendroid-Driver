@@ -1,4 +1,4 @@
-name: Build "turnip"
+name: Build Stable Turnip MSM
 
 on:
   workflow_dispatch:
@@ -32,29 +32,21 @@ jobs:
       - name: Execute build script
         run: bash ./turnip_builder.sh
 
-      - name: Release "turnip"
+      - name: Release Stable Turnip
         uses: softprops/action-gh-release@v2
         with:
+          tag_name: stu_v${{ inputs.version }}
+          name: Stable Turnip MSM v${{ inputs.version }}
+
           body: |
-            Mainline Turnip Vulkan V${{ inputs.version }}
-            Built from: https://github.com/whitebelyash/mesa-unified (turnip/gen8 branch).
+            Stable Turnip MSM build for Armada OS / Waydroid.
 
-            Custom build for Armada OS / Waydroid using MSM/DRM.
-
-            Supported GPUs:
-            * Adreno 8XX Family
-            * Adreno 7XX Family
-            * Adreno 6XX Family
-
-            Notes:
-            * Built for Android ARM64
-            * Freedreno KMD: MSM
-            * Intended for Waydroid using /dev/dri/renderD128
-            * TU_DEBUG=sysmem may be used where needed
-
-          tag_name: tu_v${{ inputs.version }}
-          name: Mainline Turnip v${{ inputs.version }}
+            Base:
+            - Whitebelyash mesa-unified turnip/26.2
+            - Mesa 26.2.0
+            - Android ARM64
+            - Freedreno KMD: MSM/DRM
+            - Intended for /dev/dri/renderD128
 
           files: |
             /tmp/mainline-turnip-V${{ inputs.version }}.zip
-            /tmp/mainline-turnip-sync-V${{ inputs.version }}.zip
